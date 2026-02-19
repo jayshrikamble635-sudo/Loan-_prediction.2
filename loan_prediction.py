@@ -58,4 +58,5 @@ if st.button("Predict Loan Status"):
     if prediction[0] == 1:
         st.success("Loan Approved")
     else:
-        st.error("Loan Not Approved")
+        st.warning("Loan Not Approved")
+
