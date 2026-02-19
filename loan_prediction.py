@@ -52,7 +52,9 @@ if st.button("Predict Loan Status"):
 
 
     for col in encoder:
+    if col in df.columns:
         df[col] = encoder[col].transform(df[col])
+
 
     prediction = model.predict(df)
 
