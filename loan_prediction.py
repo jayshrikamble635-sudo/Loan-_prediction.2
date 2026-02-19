@@ -7,9 +7,6 @@ Original file is located at
     https://colab.research.google.com/drive/1i9AnBSKsoPc6xu-D1CKd6vVsLOKMl5sS
 """
 
-# drive mount
-from google.colab import drive
-drive.mount('/content/drive')
 
 filepath ="/content/drive/MyDrive/Loan prediction (2).csv"
 
