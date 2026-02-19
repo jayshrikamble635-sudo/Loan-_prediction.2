@@ -29,7 +29,8 @@ ApplicantIncome = st.number_input("Applicant Income", min_value=0)
 CoapplicantIncome = st.number_input("Coapplicant Income", min_value=0)
 LoanAmount = st.number_input("Loan Amount", min_value=0)
 Loan_Amount_Term = st.number_input("Loan Amount Term (in days)", min_value=0)
-Credit_History = st.selectbox("Credit History", encoder["Credit_History"].classes_)
+Credit_History = st.selectbox("Credit History", [0, 1])
+
 Property_Area = st.selectbox("Property Area", encoder["Property_Area"].classes_)
 
 
