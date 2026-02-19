@@ -8,34 +8,22 @@ Original file is located at
 """
 
 import pandas as pd
-from sklearn.preprocessing import LabelEncoder
-from sklearn.linear_model import LogisticRegression
 import joblib
+st.title("loan prediction app")
 
-# Sample loan dataset
-data = {
-    "Gender": ["Male", "Female", "Male", "Female", "Male", "Female"],
-    "Education": ["Graduate", "Not Graduate", "Graduate", "Not Graduate", "Graduate", "Not Graduate"],
-    "ApplicantIncome": [5000, 3000, 6000, 2500, 7000, 2800],
-    "Loan_Status": ["Y", "N", "Y", "N", "Y", "N"]
-}
 
-df = pd.DataFrame(data)
+age = st.number_input("Age", 18,60)
+gender = st.selectbox("Gender",encoder["Gender"].classes_)
+education = st.selectbox("Education Level",encoder["Education Level"].classes_)
+job_title = st.selectbox("Job Title",encoder["Job Title"].classes_)
+years_of_exp = st.number_input("Years of Experience", 0,40)
 
-# Create encoders dictionary
-encoders = {}
 
-for col in ["Gender", "Education", "Loan_Status"]:
-    le = LabelEncoder()
-    df[col] = le.fit_transform(df[col])
-    encoders[col] = le
+df = pd.dataFrame({
+    "Age":[age],
+    "Gender":[gender],
+    "Education Level":[education],
+    "Job Title":[job_title],
+    "Years of Experience":[years_of_exp]
 
-X = df[["Gender", "Education", "ApplicantIncome"]]
-y = df["Loan_Status"]
-
-model = LogisticRegression()
-model.fit(X, y)
-
-# Save model and encoders
-joblib.dump(model, "loan_prediction_model.pkl")
-joblib.dump(encoders, "loan_encoder.pkl")
+})
