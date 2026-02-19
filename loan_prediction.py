@@ -13,8 +13,8 @@ import pandas as pd
 import joblib
 
 
-model = joblib.load("loan_prediction_model.pkl")
-encoder = joblib.load("label_encoder.pkl")
+model = joblib.load("loan_prediction_model .pkl")
+encoder = joblib.load("loan_prediction_model .pkl")
 
 st.title("Loan Prediction App")
 
