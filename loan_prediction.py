@@ -31,8 +31,7 @@ LoanAmount = st.number_input("Loan Amount", min_value=0)
 Loan_Amount_Term = st.number_input("Loan Amount Term (in days)", min_value=0)
 Credit_History = st.selectbox("Credit History", [0, 1])
 
-Property_Area = st.selectbox("Property Area", encoder["Property_Area"].classes_)
-
+Property_Area = st.selectbox("Property Area", ["Urban", "Rural", "Semiurban"])
 
 df = pd.DataFrame({
     "Gender": [Gender],
@@ -50,11 +49,9 @@ df = pd.DataFrame({
 
 if st.button("Predict Loan Status"):
 
-
     for col in encoder:
-    if col in df.columns:
-        df[col] = encoder[col].transform(df[col])
-
+        if col in df.columns:
+            df[col] = encoder[col].transform(df[col])
 
     prediction = model.predict(df)
 
